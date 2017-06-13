@@ -1,0 +1,244 @@
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./reset.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="./stylepage.css" media="screen" charset="utf-8">
+  <link rel="icon" href="./favicon.png" >   <!--à faire-->
+  <title> Ferme de la Mhotte </title>
+  <meta name="twitter:title" content="Ferme de la Mhotte">
+  <meta name="twitter:description" content="Ferme de la Mhotte, un lieu pour la mise en culture du commun">
+  <meta name="twitter:image" content="FERME.png">    <!--à faire-->
+  <meta property="og:title" content="Ferme de la Mhotte">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://fermedelamhotte.fr">
+  <meta property="og:image" content="FERME.png"> <!--à faire-->
+  <meta property="og:description" content="Ferme de la Mhotte, un lieu pour la mise en culture du communs">
+  <meta property="og:site_name" content="Ferme de la Mhotte">
+
+
+
+
+
+
+<script language="JavaScript">
+<!--
+
+function TElement(id)
+{
+   this.id=id;
+   this.elt=(this.id) ? document.getElementById(id) : null;
+
+   function getX()
+   {
+      return this.elt.offsetLeft;
+   }
+   TElement.prototype.getX=getX;
+
+
+   function getY()
+   {
+      return this.elt.offsetTop;
+   }
+   TElement.prototype.getY=getY;
+
+   function setX(x)
+   {
+      return this.elt.style.left=x+"px";
+   }
+   TElement.prototype.setX=setX;
+
+   function setY(y)
+   {
+      return this.elt.style.top=y+"px"
+   }
+   TElement.prototype.setY=setY;
+
+}
+
+
+
+function TEvent()
+{
+   this.x = 0;
+   this.y = 0;
+
+   function init(evt)
+   {
+      this.evt=(evt) ? evt : window.event; // l'objet événement
+      if (!this.evt) return;
+      this.elt=(this.evt.target) ? this.evt.target : this.evt.srcElement; // la source de l'événement
+
+      this.id=(this.elt) ? this.elt.id : "";
+
+      // Calcul des coordonnées de la souris par rapport au document
+
+      if (this.evt.pageX || this.evt.pageY)
+      {
+         this.x = this.evt.pageX;
+         this.y = this.evt.pageY;
+      }
+      else if (this.evt.clientX || this.evt.clientY)
+      {
+         this.x = this.evt.clientX + document.body.scrollLeft;
+         this.y = this.evt.clientY + document.body.scrollTop;
+      }
+   }
+   TEvent.prototype.init=init;
+
+   function stop()
+   {
+      this.evt.cancelBubble = true;
+      if (this.evt.stopPropagation) this.evt.stopPropagation();
+   }
+   TEvent.prototype.stop=stop;
+}
+
+
+
+function TDragObject(id)
+{
+   if (!id) return;
+   this.base=TElement;
+
+   this.base(id);
+   this.elt.obj=this
+   this.elt.onmousedown=_startDrag;
+
+   function startDrag(evt)
+   {
+      this.elt.style.zIndex=1;
+      this.lastMouseX=evt.x;
+      this.lastMouseY=evt.y;
+      evt.dragObject=this;
+
+      document.onmousemove=_drag;
+      document.onmouseup=_stopDrag;
+
+      if (this.onStartDrag) this.onStartDrag();
+   }
+   TDragObject.prototype.startDrag=startDrag;
+
+   function stopDrag(evt)
+   {
+      this.elt.style.zIndex=0;
+      evt.dragObject=null;
+      document.onmousemove=null;
+      document.onmouseup=null;
+
+      if (this.onDrop) this.onDrop();
+   }
+   TDragObject.prototype.stopDrag=stopDrag;
+
+   function drag(evt)
+   {
+      dX=this.getX()+evt.x-this.lastMouseX;
+      dY=this.getY()+evt.y-this.lastMouseY;
+
+      this.setX(dX);
+      this.setY(dY);
+
+      this.lastMouseX=evt.x;
+      this.lastMouseY=evt.y;
+
+      if (this.onDrag) this.onDrag();
+
+   }
+   TDragObject.prototype.drag=drag;
+}
+TDragObject.prototype=new TElement();
+
+
+
+var _event=new TEvent(); // Objet global pour manipuler l'événement en cours
+
+function _startDrag(evt)
+{
+   _event.init(evt);
+   if (this.obj && this.obj.startDrag)
+   {
+      this.obj.startDrag(_event);
+   }
+}
+
+function _stopDrag(evt)
+{
+   if (_event.dragObject) _event.dragObject.stopDrag(_event);
+}
+
+function _drag(evt)
+{
+   _event.init(evt);
+   if (_event.dragObject) _event.dragObject.drag(_event);
+   return false;
+}
+
+function afficherStatus()
+{
+   window.status="Object ["+this.id+"] se trouve en ("+this.getX()+","+this.getY()+")"+
+   " text =\""+this.elt.innerHTML+"\"";
+}
+
+
+function load()
+{
+   tst=new TDragObject("test");
+   tst.onDrag=afficherStatus;
+
+   tst2=new TDragObject("test2");
+   tst2.onDrag=afficherStatus;
+
+   tst3=new TDragObject("test3");
+   tst3.onDrag=afficherStatus;
+
+}
+
+// -->
+</script>
+</head>
+<body onload="load()">
+    <div class="conteneur">
+
+      <div class="colonnegauche">
+        <img class="image" src="./images/pages/jardin/JARDIN1.jpg" alt="photo du Jardin de la Mhotte" />
+        <img class="image" src="./images/pages/jardin/JARDIN2.jpg" alt="photo du Jardin de la Mhotte" />
+        <img class="image" src="./images/pages/jardin/JARDIN3.jpg" alt="photo du Jardin de la Mhotte" />
+        <img class="image" src="./images/pages/jardin/JARDIN4.jpg" alt="photo du Jardin de la Mhotte" />
+        <img class="image" src="./images/pages/jardin/JARDIN5.jpg" alt="photo du Jardin de la Mhotte" />
+
+
+      </div>
+
+      <div class="colonnedroite">
+        <p>
+           Le Gaec du <b>Jardin de la Mhotte</b> est un maraîchage <b>diversifié</b> (environ 30 légumes et 80 variétés différentes auxquelles s’ajoutent des engrais verts et des bandes fleuries) menés par deux associés. Les maraîchers produisent des légumes de saison <b>cultivés en biodynamie</b>, certifiés par Ecocert. Ils ont mis en place l’usage du cheval pour certains travaux agricoles et utilisent de la fumure animale.</br></br>
+
+          Le Jardin de La Mhotte est un lieu de production mais aussi <b>un lieu d’échange, de réflexion et de recherche</b> lié à l’entretien et à la culture de la terre. Il accueille des stagiaires en formation agricole et des écovolontaires.</br></br>
+
+           <span class="vert">Le Jardin de la Mhotte est présent le vendredi au marché de Moulins et le samedi au marché de Bourbon l’Archambault. Le mercredi matin la vente se fait à la Ferme de la Mhotte.</span class="vert"></br>
+        </p>
+
+      </div>
+
+
+    <div id ="test" class="dragDrop">
+          <img class="signe1" src="./signes/JARDIN.png"/>
+    </div>
+
+    <div id ="test2" class="dragDrop">
+          <img class="signe2" src="./signes/JARDIN.png"/>
+    </div>
+
+    <div id ="test3" class="dragDrop">
+          <img class="signe3" src="./signes/JARDIN.png"/>
+    </div>
+
+
+
+</body>
+<footer>
+  <a class="home" href="./home.html">
+    <h1> Ferme de la Mhotte </h1><h2>un lieu pour la mise en culture du commun </h2>
+  </a>
+</footer>
+</html>

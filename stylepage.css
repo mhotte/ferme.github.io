@@ -1,0 +1,195 @@
+@font-face {
+    font-family: 'Irma-Black';
+    src: url('./typo/Irma-Black.woff2') format('woff2'),
+         url('./typo/Irma-Black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'InknutAntiqua-Black';
+    src: url('./typo/InknutAntiqua-Black.woff2') format('woff2'),
+         url('./typo/InknutAntiqua-Black.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'InknutAntiqua-Medium';
+    src: url('./typo/InknutAntiqua-Medium.woff2') format('woff2'),
+         url('./typo/InknutAntiqua-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+html{
+  height: 100%;
+  width: 100%;
+  margin:0px;
+  padding:0px;
+}
+
+.body{
+  clear: both;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+
+b{
+    font-family: 'InknutAntiqua-Black',serif;
+}
+
+
+a {
+  text-decoration: none;
+      color: rgb(51,255,102);
+}
+
+/*————————————————————————————COLONNES————————————————————————————————*/
+
+
+.colonnegauche{
+  float:left;
+  width:65%;
+  margin-bottom: 10px;
+
+}
+
+.image{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.colonnedroite{
+  float: right;
+  width: 35%;
+height:2190px;
+margin-top: 0px;
+}
+p{
+  font-family: 'InknutAntiqua-Medium',serif;
+  font-size:0.8em;
+  line-height: 1.5em;
+  padding-left:10px;
+}
+
+.vert{
+    color: rgb(51,255,102);
+}
+
+
+
+
+/*@media all and (max-width: 320px) {
+    p {
+      font-size:0.5em;
+    }
+    .colonnedroite {
+      width:50%;
+    }
+  }*/
+
+
+
+/*————————————————————————————DRAGDROP————————————————————————————————*/
+
+
+.dragDrop
+{
+position:absolute;
+z-index:0;
+cursor: pointer;
+
+}
+
+
+.signe1{
+  width:200px;
+  height:auto;
+  position:absolute;
+  left:650px;
+  top:200px;
+}
+
+.signe2{
+  width:200px;
+  height:auto;
+  position:absolute;
+  left:150px;
+  top:800px;
+}
+
+.signe3{
+  width:200px;
+  height:auto;
+  position:absolute;
+  left:800px;
+  top:1900px;
+}
+
+
+/*————————————————————————————SPECIAL PAGE ABOUT————————————————————————————————*/
+
+.colonnegaucheabout{
+  float:left;
+  width:65%;
+}
+
+p{
+  font-family: 'InknutAntiqua-Medium',serif;
+  font-size:0.8em;
+  line-height: 1.5em;
+  padding-left:10px;
+}
+
+.vert{
+    color: rgb(51,255,102);
+}
+
+
+.colonnedroiteabout{
+  float: right;
+  width: 35%;
+}
+
+  .homeabout{
+    display: inline-block;
+    position: absolute;
+    left:800px;
+    top:580px;
+  }
+
+
+  /*————————————————————————————FOOTER————————————————————————————————*/
+
+
+footer{
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+  h1{
+    font-family: 'Irma-Black',serif;
+    color: black;
+    font-size: 1em;
+    float: right;
+    margin: 0px;
+    margin-right: 20px;
+  }
+
+  h2{
+    font-family: 'InknutAntiqua-Medium',serif;
+    font-size:0.8em;
+    line-height: 1.5em;
+    font-style: normal;
+    color: rgb(51,255,102);
+    float: right;
+    margin: 0px;
+    margin-right: 20px;
+
+  }

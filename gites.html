@@ -1,0 +1,244 @@
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./reset.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="./stylepage.css" media="screen" charset="utf-8">
+  <link rel="icon" href="./favicon.png" >   <!--à faire-->
+  <title> Ferme de la Mhotte </title>
+  <meta name="twitter:title" content="Ferme de la Mhotte">
+  <meta name="twitter:description" content="Ferme de la Mhotte, un lieu pour la mise en culture du commun">
+  <meta name="twitter:image" content="FERME.png">    <!--à faire-->
+  <meta property="og:title" content="Ferme de la Mhotte">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://fermedelamhotte.fr">
+  <meta property="og:image" content="FERME.png"> <!--à faire-->
+  <meta property="og:description" content="Ferme de la Mhotte, un lieu pour la mise en culture du communs">
+  <meta property="og:site_name" content="Ferme de la Mhotte">
+
+
+
+
+
+
+<script language="JavaScript">
+<!--
+
+function TElement(id)
+{
+   this.id=id;
+   this.elt=(this.id) ? document.getElementById(id) : null;
+
+   function getX()
+   {
+      return this.elt.offsetLeft;
+   }
+   TElement.prototype.getX=getX;
+
+
+   function getY()
+   {
+      return this.elt.offsetTop;
+   }
+   TElement.prototype.getY=getY;
+
+   function setX(x)
+   {
+      return this.elt.style.left=x+"px";
+   }
+   TElement.prototype.setX=setX;
+
+   function setY(y)
+   {
+      return this.elt.style.top=y+"px"
+   }
+   TElement.prototype.setY=setY;
+
+}
+
+
+
+function TEvent()
+{
+   this.x = 0;
+   this.y = 0;
+
+   function init(evt)
+   {
+      this.evt=(evt) ? evt : window.event; // l'objet événement
+      if (!this.evt) return;
+      this.elt=(this.evt.target) ? this.evt.target : this.evt.srcElement; // la source de l'événement
+
+      this.id=(this.elt) ? this.elt.id : "";
+
+      // Calcul des coordonnées de la souris par rapport au document
+
+      if (this.evt.pageX || this.evt.pageY)
+      {
+         this.x = this.evt.pageX;
+         this.y = this.evt.pageY;
+      }
+      else if (this.evt.clientX || this.evt.clientY)
+      {
+         this.x = this.evt.clientX + document.body.scrollLeft;
+         this.y = this.evt.clientY + document.body.scrollTop;
+      }
+   }
+   TEvent.prototype.init=init;
+
+   function stop()
+   {
+      this.evt.cancelBubble = true;
+      if (this.evt.stopPropagation) this.evt.stopPropagation();
+   }
+   TEvent.prototype.stop=stop;
+}
+
+
+
+function TDragObject(id)
+{
+   if (!id) return;
+   this.base=TElement;
+
+   this.base(id);
+   this.elt.obj=this
+   this.elt.onmousedown=_startDrag;
+
+   function startDrag(evt)
+   {
+      this.elt.style.zIndex=1;
+      this.lastMouseX=evt.x;
+      this.lastMouseY=evt.y;
+      evt.dragObject=this;
+
+      document.onmousemove=_drag;
+      document.onmouseup=_stopDrag;
+
+      if (this.onStartDrag) this.onStartDrag();
+   }
+   TDragObject.prototype.startDrag=startDrag;
+
+   function stopDrag(evt)
+   {
+      this.elt.style.zIndex=0;
+      evt.dragObject=null;
+      document.onmousemove=null;
+      document.onmouseup=null;
+
+      if (this.onDrop) this.onDrop();
+   }
+   TDragObject.prototype.stopDrag=stopDrag;
+
+   function drag(evt)
+   {
+      dX=this.getX()+evt.x-this.lastMouseX;
+      dY=this.getY()+evt.y-this.lastMouseY;
+
+      this.setX(dX);
+      this.setY(dY);
+
+      this.lastMouseX=evt.x;
+      this.lastMouseY=evt.y;
+
+      if (this.onDrag) this.onDrag();
+
+   }
+   TDragObject.prototype.drag=drag;
+}
+TDragObject.prototype=new TElement();
+
+
+
+var _event=new TEvent(); // Objet global pour manipuler l'événement en cours
+
+function _startDrag(evt)
+{
+   _event.init(evt);
+   if (this.obj && this.obj.startDrag)
+   {
+      this.obj.startDrag(_event);
+   }
+}
+
+function _stopDrag(evt)
+{
+   if (_event.dragObject) _event.dragObject.stopDrag(_event);
+}
+
+function _drag(evt)
+{
+   _event.init(evt);
+   if (_event.dragObject) _event.dragObject.drag(_event);
+   return false;
+}
+
+function afficherStatus()
+{
+   window.status="Object ["+this.id+"] se trouve en ("+this.getX()+","+this.getY()+")"+
+   " text =\""+this.elt.innerHTML+"\"";
+}
+
+
+function load()
+{
+   tst=new TDragObject("test");
+   tst.onDrag=afficherStatus;
+
+   tst2=new TDragObject("test2");
+   tst2.onDrag=afficherStatus;
+
+   tst3=new TDragObject("test3");
+   tst3.onDrag=afficherStatus;
+
+}
+
+// -->
+</script>
+</head>
+<body onload="load()">
+  <div class="conteneur">
+
+    <div class="colonnegauche">
+      <img class="image" src="./images/pages/gites/GITES1.jpg" alt="photo des Gites" title="le domaine"/>
+      <img class="image" src="./images/pages/gites/GITES2.jpg" alt="photo des Gites" title="une chambre" />
+      <img class="image" src="./images/pages/gites/GITES3.jpg" alt="photo des Gites" title="la salle des Sept Pilliers"/>
+      <img class="image" src="./images/pages/gites/GITES4.jpg" alt="photo des Gites" title="la Grange"/>
+    </div>
+
+    <div class="colonnedroite">
+      <p> La Ferme de La Mhotte propose en location <b>deux gîtes ruraux, une grande salle d’activité, une grange-théâtre et un jardin </b>pour l’hébergement de stages et de particuliers (vacances, mariages, séminaires, réunions de travail, …). Chacun de ces espaces, modulable pour 1 à 22 personnes, peut être loué indépendamment ou en totalité par semaine ou par week-end selon la saison.</br></br>
+
+Le grand gîte peut accueillir une quinzaine de personnes en chambres simples, doubles ou dans un dortoir. Chaque chambre dispose d’un lavabo, les toilettes et douches étant communes. Une grande salle d’accueil chauffée au feu de bois permet de réunir des groupes dans <b>une atmosphère amicale et chaleureuse.</b></br></br>
+
+Le petit gîte, idéal pour des séjours d’agrément, ou complétant utilement la capacité d’accueil du grand gîte peut accueillir 7 personnes.</br></br>
+
+La salle des Sept Piliers est une grande pièce de 120 m2 <b>située en surplomb du paysage</b> et peut accueillir des conférences, des stages de pratiques artistiques (musique, clown, théatre, peinture, …) et corporelles (Taïchi, Chi Qong, eurythmie, …) ainsi que des rencontres publiques, des projections de film, …</br>La grange avec son beau volume et ses qualités acoustiques comporte une grande scène et des gradins parfaits pour les concerts, pièces de théatre, mariages, ...</br></br>
+
+
+
+         <span class="vert">Pour tout renseignements : </br><a href="mailto:gitesdelamhotte@gmail.com">gitesdelamhotte@gmail.com</a> </br>07 69 06 33 78</br></br></span class="vert"><br/>
+      </p>
+    </div>
+
+    <div id ="test" class="dragDrop">
+          <img class="signe1" src="./signes/GITES.png"/>
+    </div>
+
+    <div id ="test2" class="dragDrop">
+          <img class="signe2" src="./signes/GITES.png"/>
+    </div>
+
+    <div id ="test3" class="dragDrop">
+          <img class="signe3" src="./signes/GITES.png"/>
+    </div>
+
+
+</body>
+
+<footer>
+  <a class="home" href="./home.html">
+    <h1> Ferme de la Mhotte </h1><h2>un lieu pour la mise en culture du commun </h2>
+  </a>
+</footer>
+</html>

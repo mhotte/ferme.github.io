@@ -1,0 +1,250 @@
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./reset.css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="./stylepage.css" media="screen" charset="utf-8">
+  <link rel="icon" href="./favicon.png" >   <!--à faire-->
+  <title> Ferme de la Mhotte </title>
+  <meta name="twitter:title" content="Ferme de la Mhotte">
+  <meta name="twitter:description" content="Ferme de la Mhotte, un lieu pour la mise en culture du commun">
+  <meta name="twitter:image" content="FERME.png">    <!--à faire-->
+  <meta property="og:title" content="Ferme de la Mhotte">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://fermedelamhotte.fr">
+  <meta property="og:image" content="FERME.png"> <!--à faire-->
+  <meta property="og:description" content="Ferme de la Mhotte, un lieu pour la mise en culture du communs">
+  <meta property="og:site_name" content="Ferme de la Mhotte">
+
+
+
+
+
+
+<script language="JavaScript">
+<!--
+
+function TElement(id)
+{
+   this.id=id;
+   this.elt=(this.id) ? document.getElementById(id) : null;
+
+   function getX()
+   {
+      return this.elt.offsetLeft;
+   }
+   TElement.prototype.getX=getX;
+
+
+   function getY()
+   {
+      return this.elt.offsetTop;
+   }
+   TElement.prototype.getY=getY;
+
+   function setX(x)
+   {
+      return this.elt.style.left=x+"px";
+   }
+   TElement.prototype.setX=setX;
+
+   function setY(y)
+   {
+      return this.elt.style.top=y+"px"
+   }
+   TElement.prototype.setY=setY;
+
+}
+
+
+
+function TEvent()
+{
+   this.x = 0;
+   this.y = 0;
+
+   function init(evt)
+   {
+      this.evt=(evt) ? evt : window.event; // l'objet événement
+      if (!this.evt) return;
+      this.elt=(this.evt.target) ? this.evt.target : this.evt.srcElement; // la source de l'événement
+
+      this.id=(this.elt) ? this.elt.id : "";
+
+      // Calcul des coordonnées de la souris par rapport au document
+
+      if (this.evt.pageX || this.evt.pageY)
+      {
+         this.x = this.evt.pageX;
+         this.y = this.evt.pageY;
+      }
+      else if (this.evt.clientX || this.evt.clientY)
+      {
+         this.x = this.evt.clientX + document.body.scrollLeft;
+         this.y = this.evt.clientY + document.body.scrollTop;
+      }
+   }
+   TEvent.prototype.init=init;
+
+   function stop()
+   {
+      this.evt.cancelBubble = true;
+      if (this.evt.stopPropagation) this.evt.stopPropagation();
+   }
+   TEvent.prototype.stop=stop;
+}
+
+
+
+function TDragObject(id)
+{
+   if (!id) return;
+   this.base=TElement;
+
+   this.base(id);
+   this.elt.obj=this
+   this.elt.onmousedown=_startDrag;
+
+   function startDrag(evt)
+   {
+      this.elt.style.zIndex=1;
+      this.lastMouseX=evt.x;
+      this.lastMouseY=evt.y;
+      evt.dragObject=this;
+
+      document.onmousemove=_drag;
+      document.onmouseup=_stopDrag;
+
+      if (this.onStartDrag) this.onStartDrag();
+   }
+   TDragObject.prototype.startDrag=startDrag;
+
+   function stopDrag(evt)
+   {
+      this.elt.style.zIndex=0;
+      evt.dragObject=null;
+      document.onmousemove=null;
+      document.onmouseup=null;
+
+      if (this.onDrop) this.onDrop();
+   }
+   TDragObject.prototype.stopDrag=stopDrag;
+
+   function drag(evt)
+   {
+      dX=this.getX()+evt.x-this.lastMouseX;
+      dY=this.getY()+evt.y-this.lastMouseY;
+
+      this.setX(dX);
+      this.setY(dY);
+
+      this.lastMouseX=evt.x;
+      this.lastMouseY=evt.y;
+
+      if (this.onDrag) this.onDrag();
+
+   }
+   TDragObject.prototype.drag=drag;
+}
+TDragObject.prototype=new TElement();
+
+
+
+var _event=new TEvent(); // Objet global pour manipuler l'événement en cours
+
+function _startDrag(evt)
+{
+   _event.init(evt);
+   if (this.obj && this.obj.startDrag)
+   {
+      this.obj.startDrag(_event);
+   }
+}
+
+function _stopDrag(evt)
+{
+   if (_event.dragObject) _event.dragObject.stopDrag(_event);
+}
+
+function _drag(evt)
+{
+   _event.init(evt);
+   if (_event.dragObject) _event.dragObject.drag(_event);
+   return false;
+}
+
+function afficherStatus()
+{
+   window.status="Object ["+this.id+"] se trouve en ("+this.getX()+","+this.getY()+")"+
+   " text =\""+this.elt.innerHTML+"\"";
+}
+
+
+function load()
+{
+   tst=new TDragObject("test");
+   tst.onDrag=afficherStatus;
+
+   tst2=new TDragObject("test2");
+   tst2.onDrag=afficherStatus;
+
+   tst3=new TDragObject("test3");
+   tst3.onDrag=afficherStatus;
+
+}
+
+// -->
+</script>
+</head>
+<body onload="load()">
+  <div class="conteneur">
+
+    <div class="colonnegauche">
+      <img class="image" src="./images/pages/echoppe/ECHOPPE1.jpg" alt="photo de l'Echoppe" />
+      <img class="image" src="./images/pages/echoppe/ECHOPPE2.jpg" alt="photo de l'Echoppe" />
+      <img class="image" src="./images/pages/echoppe/ECHOPPE3.jpg" alt="photo de l'Echoppe" />
+      <img class="image" src="./images/pages/echoppe/ECHOPPE4.jpg" alt="photo de l'Echoppe" />
+    </div>
+
+    <div class="colonnedroite">
+      <p> L’Échoppe est un magasin bio qui fêtera bientôt ses 40 ans d’existence. Elle a été créée par un regroupement de consommateurs qui voulaient avoir accès à des produits bio, en pleine campagne.</br></br>
+
+La fonction du magasin est notamment de <b>servir de point de rencontre,</b> de lieu ressource pour ceux voulant s’installer dans la région. L’espace de l’Échoppe sert donc notamment à donner les contacts et les démarches pour cela.</br></br>
+
+<b>Un lieu de partage de connaissance</b>
+Connaître les produits, d’où ils viennent, comment ils ont été produit, par qui. Un produit bio peut être basé sur une exploitation des producteurs par le distributeur (comme cela est généralement le cas dans la grande distribution). Il existe des labels sociaux qui garantissent partiellement que les produits respectent des organisations sociales qui ne soient pas basé sur l’esclavage ou l’endettement à vie des producteurs.</br></br>
+
+<b>Connaître les qualités nutritives, thérapeutiques des aliments</b>
+De même, nous ne connaissons pas vraimment les qualités nutritives et thérapeutiques des aliments que nous consommons. Certains s’intéressent à ces questions et transmettent leur connaissance aux autres.</br></br>
+
+<b>Connaître le sens du prix d’un produit</b>
+À la Ferme de la Mhotte, le prix que nous payons ne finance pas seulement l’agriculture biologique ou biodynamique. Il finance parfois les producteurs qui répondent à un cahier des charges social. Dans le cas des produits locaux, il finance également une économie sociale locale, et les relations sociales, la solidarité qui va avec. Le prix finance également la personne qui travaille à la caisse, qui connait la région, ce qui s’y passe, les projets qui s’y développent, et qui contribue indirectement par son travail, au développement social, économique et culturel de cette région.
+</br></br>
+         <span class="vert">lundi 9h- 13h</br>
+mardi 15h - 18h</br>
+mercredi 9h - 13h</br>
+jeudi 15h - 18h</br>
+vendredi 17h - 00h30</br>
+samedi 9h - 13h30</br></br></span class="vert"><br/>
+      </p>
+    </div>
+
+    <div id ="test" class="dragDrop">
+          <img class="signe1" src="./signes/ECHOPPE.png"/>
+    </div>
+
+    <div id ="test2" class="dragDrop">
+          <img class="signe2" src="./signes/ECHOPPE.png"/>
+    </div>
+
+    <div id ="test3" class="dragDrop">
+          <img class="signe3" src="./signes/ECHOPPE.png"/>
+    </div>
+
+</body>
+<footer>
+  <a class="home" href="./home.html">
+    <h1> Ferme de la Mhotte </h1><h2>un lieu pour la mise en culture du commun </h2>
+  </a>
+</footer>
+</html>
