@@ -57,27 +57,14 @@ color: black;
 }
 
 
-/*————————————————————————————FACEBOOK————————————————————————————————*/
 
-.facebook{
-  height: 30px;
-  width : auto;
-  position: absolute;
-  display: block;
-left: 1230px;
-top: 120px;
-margin-top: 0px;
-padding-top: 0px;
-text-decoration: none;
-color: black;
-}
 
 
 
 /*————————————————————————————FOOTER————————————————————————————————*/
 
 
-footer{
+/*footer{
   margin-bottom: 10px;
   width: 100%;
 }
@@ -109,10 +96,42 @@ display: inline-block;
 position: absolute;
 left:800px;
 top:580px;
+}*/
+
+h1{
+  font-family: 'Irma-Black',serif;
+  color: black;
+  text-decoration: none;
+  font-size: 1em;
+  text-align: right;
+  margin: 0px;
+  margin-top: 10px;
+  padding: 0px;
 }
 
 
+h2{
+font-family: 'InknutAntiqua-Medium',serif;
+font-size:0.8em;
+line-height: 1.3em;
+text-decoration: none;
 
+font-style: normal;
+color: rgb(51,255,102);
+text-align: right;
+margin: 0px;
+padding: 0px;
+
+}
+
+
+.home{
+display: inline-block;
+position: absolute;
+left:520px;
+top:560px;
+text-decoration: none;
+}
 /*————————————————————————————CITATION ABOUT————————————————————————————————*/
 
 h4{
@@ -279,7 +298,7 @@ h3 {
   color: rgb(51,255,102);
   display: inline-block;
   line-height: 0em;
-  margin-top: 45px;
+  margin-top: 20px;
 }
 
 p{
@@ -287,7 +306,7 @@ p{
   font-size: 0.8em;
   display: inline-block;
   line-height: 0em;
-  margin-top: 45px;
+  margin-top: 20px;
 }
 
 img {

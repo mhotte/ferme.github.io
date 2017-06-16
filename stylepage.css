@@ -157,18 +157,53 @@ p{
   width: 35%;
 }
 
-  .homeabout{
+/*  .homeabout{
     display: inline-block;
     position: absolute;
     left:800px;
-    top:680px;
+    top:620px;
+  }*/
+
+  h1{
+    font-family: 'Irma-Black',serif;
+    color: black;
+    text-decoration: none;
+    font-size: 1em;
+    text-align: right;
+    margin: 0px;
+    margin-top: 10px;
+    padding: 0px;
+  }
+
+
+  h2{
+  font-family: 'InknutAntiqua-Medium',serif;
+  font-size:0.8em;
+  line-height: 1.3em;
+  text-decoration: none;
+
+  font-style: normal;
+  color: rgb(51,255,102);
+  text-align: right;
+  margin: 0px;
+  padding: 0px;
+
+  }
+
+
+  .homeabout{
+  display: inline-block;
+  position: absolute;
+  left:520px;
+  top:560px;
+  text-decoration: none;
   }
 
 
   /*————————————————————————————FOOTER————————————————————————————————*/
 
 
-footer{
+/*footer{
   margin-bottom: 10px;
   width: 100%;
 }
@@ -192,4 +227,28 @@ footer{
     margin: 0px;
     margin-right: 20px;
 
+  }*/
+
+
+  h1{
+    font-family: 'Irma-Black',serif;
+    color: black;
+    font-size: 1em;
+    text-align: right;
+    margin: 0px;
+    margin-top: 10px;
+    padding: 0px;
   }
+
+
+h2{
+  font-family: 'InknutAntiqua-Medium',serif;
+  font-size:0.8em;
+  line-height: 1.5em;
+  font-style: normal;
+  color: rgb(51,255,102);
+  text-align: right;
+  margin: 0px;
+  padding: 0px;
+
+}
