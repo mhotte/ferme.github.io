@@ -58,45 +58,8 @@ color: black;
 
 
 
-
-
-
 /*————————————————————————————FOOTER————————————————————————————————*/
 
-
-/*footer{
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-  h1{
-    font-family: 'Irma-Black',serif;
-    color: black;
-    font-size: 1em;
-    float: right;
-    margin: 0px;
-    margin-right: 20px;
-  }
-
-  h2{
-    font-family: 'InknutAntiqua-Medium',serif;
-    font-size:0.8em;
-    line-height: 1.5em;
-    font-style: normal;
-    color: rgb(51,255,102);
-    float: right;
-    margin: 0px;
-    margin-right: 20px;
-
-  }
-
-
-.home{
-display: inline-block;
-position: absolute;
-left:800px;
-top:580px;
-}*/
 
 h1{
   font-family: 'Irma-Black',serif;
@@ -169,8 +132,8 @@ z-index:0;
   width:100px;
   height:auto;
   position:absolute;
-  left:920px;
-  top:400px;
+  left:950px;
+  top:380px;
   transition:opacity .3s;
   z-index:1;
 }
@@ -179,8 +142,8 @@ z-index:0;
   width:100px;
   height:auto;
   position:absolute;
-  left:860px;
-  top:490px;
+  left:890px;
+  top:470px;
   transition:opacity .3s;
   z-index:1;
 }
@@ -189,8 +152,8 @@ z-index:0;
   width:200px;
   height:auto;
   position:absolute;
-  left:700px;
-  top:380px;
+  left:730px;
+  top:360px;
   transition:opacity .3s;
   z-index:1;
 }
@@ -199,8 +162,8 @@ z-index:0;
   width:90px;
   height:auto;
   position:absolute;
-  left:790px;
-  top:270px;
+  left:820px;
+  top:250px;
   transition:opacity .3s;
   z-index:1;
 }
@@ -209,8 +172,8 @@ z-index:0;
   width:100px;
   height:auto;
   position:absolute;
-  left:750px;
-  top:170px;
+  left:780px;
+  top:150px;
   transition:opacity .3s;
   z-index:1;
 }
@@ -219,8 +182,8 @@ z-index:0;
   width:100px;
   height:auto;
   position:absolute;
-  left:780px;
-  top:65px;
+  left:810px;
+  top:45px;
   transition:opacity .3s;
   z-index:1;
 }
@@ -229,8 +192,8 @@ z-index:0;
   width:100px;
   height:auto;
   position:absolute;
-  left:870px;
-  top:65px;
+  left:900px;
+  top:45px;
   transition:opacity .3s;
   z-index:1;
 }
@@ -239,8 +202,8 @@ z-index:0;
   width:170px;
   height:auto;
   position:absolute;
-  left:930px;
-  top:90px;
+  left:960px;
+  top:70px;
   transition:opacity .3s;
   z-index:1;
 }
@@ -249,8 +212,8 @@ z-index:0;
   width:80px;
   height:auto;
   position:absolute;
-  left:1055px;
-  top:257px;
+  left:1085px;
+  top:237px;
   transition:opacity .3s;
   z-index:1;
 }
@@ -259,8 +222,8 @@ z-index:0;
   width:120px;
   height:auto;
   position:absolute;
-  left:1010px;
-  top:340px;
+  left:1040px;
+  top:320px;
   transition:opacity .3s;
   z-index:1;
 }
