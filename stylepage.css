@@ -6,20 +6,26 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'InknutAntiqua-Black';
-    src: url('./typo/InknutAntiqua-Black.woff2') format('woff2'),
-         url('./typo/InknutAntiqua-Black.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 @font-face {
-    font-family: 'InknutAntiqua-Medium';
-    src: url('./typo/InknutAntiqua-Medium.woff2') format('woff2'),
-         url('./typo/InknutAntiqua-Medium.woff') format('woff');
+    font-family: 'inknut_antiquablack';
+    src: url('./typo/inknutantiqua-black-webfont.woff2') format('woff2'),
+         url('./typo/inknutantiqua-black-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'inknut_antiquamedium';
+    src: url('./typo/inknutantiqua-medium-webfont.woff2') format('woff2'),
+         url('./typo/inknutantiqua-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 
@@ -41,7 +47,7 @@ html{
 
 
 b{
-    font-family: 'InknutAntiqua-Black',serif;
+    font-family: 'inknut_antiquablack',serif;
 }
 
 
@@ -71,8 +77,9 @@ a {
 height:2190px;
 margin-top: 0px;
 }
+
 p{
-  font-family: 'InknutAntiqua-Medium',serif;
+  font-family: 'inknut_antiquamedium',serif;
   font-size:0.8em;
   line-height: 1.5em;
   padding-left:10px;
@@ -141,7 +148,7 @@ cursor: pointer;
 }
 
 p{
-  font-family: 'InknutAntiqua-Medium',serif;
+  font-family: 'inknut_antiquamedium',serif;
   font-size:0.8em;
   line-height: 1.5em;
   padding-left:10px;
@@ -177,7 +184,7 @@ p{
 
 
   h2{
-  font-family: 'InknutAntiqua-Medium',serif;
+  font-family: 'inknut_antiquamedium',serif;
   font-size:0.8em;
   line-height: 1.3em;
   text-decoration: none;
@@ -242,7 +249,7 @@ p{
 
 
 h2{
-  font-family: 'InknutAntiqua-Medium',serif;
+  font-family: 'inknut_antiquamedium',serif;
   font-size:0.8em;
   line-height: 1.5em;
   font-style: normal;
