@@ -36,6 +36,7 @@ html{
   width: 100%;
   margin:0px;
   padding:0px;
+  background-color: rgb(245,245,245);
 }
 
 .body{
@@ -53,7 +54,7 @@ b{
 
 a {
   text-decoration: none;
-      color: rgb(51,255,102);
+      color: rgb(0,177,64);
 }
 
 /*————————————————————————————COLONNES————————————————————————————————*/
@@ -86,7 +87,7 @@ p{
 }
 
 .vert{
-    color: rgb(51,255,102);
+    color: rgb(0,177,64);
 }
 
 
@@ -105,18 +106,18 @@ p{
 
 /*————————————————————————————DRAGDROP————————————————————————————————*/
 
-
+/*
 .dragDrop
 {
 position:absolute;
 z-index:0;
 cursor: pointer;
 
-}
+}*/
 
 
 .signe1{
-  width:200px;
+  width:120px;
   height:auto;
   position:absolute;
   left:600px;
@@ -124,7 +125,7 @@ cursor: pointer;
 }
 
 .signe2{
-  width:200px;
+  width:120px;
   height:auto;
   position:absolute;
   left:150px;
@@ -132,7 +133,7 @@ cursor: pointer;
 }
 
 .signe3{
-  width:200px;
+  width:120px;
   height:auto;
   position:absolute;
   left:800px;
@@ -155,7 +156,7 @@ p{
 }
 
 .vert{
-    color: rgb(51,255,102);
+    color: rgb(0,177,64);
 }
 
 
@@ -253,7 +254,7 @@ h2{
   font-size:0.8em;
   line-height: 1.5em;
   font-style: normal;
-  color: rgb(51,255,102);
+  color: rgb(0,177,64);
   text-align: right;
   margin: 0px;
   padding: 0px;
